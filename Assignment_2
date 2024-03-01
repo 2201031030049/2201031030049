@@ -1,1 +1,277 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive navigation bar</title>
 
+</head>
+<style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+header{
+    padding: 0 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #43C6AC;  
+    background: -webkit-linear-gradient(to right, #191654, #3e7f72);  
+    background: linear-gradient(to right, #191654, #3a7468); 
+}
+
+.logo{
+    color:white;
+    font-size: 1.5rem;
+    /* line-height: 80px; */
+    font-weight: bold;
+    display: flex;
+}
+
+.logo h2{
+	padding-left: 0.6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    cursor: pointer;
+}
+
+.logo img{
+    width: 6vw;
+	height: 12vh;
+	border-radius: 100%;
+}
+
+span{
+    color: #5bd485;
+}
+
+.navbar .ul-list{
+    display: flex;
+	gap: 2rem;
+}
+
+/* .navbar .ul-list li{
+    line-height: 80px;
+} */
+
+.navbar .ul-list li a{
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+	/* padding: 0.5rem; */
+}
+
+.navbar .ul-list li a:hover,a:active{
+    color: red;
+    font-size: 1.25rem;
+}
+
+
+
+/* ============ icon button ============= */
+
+.mobile-navbar-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+.mobile-nav-icon{
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+.mobile-nav-icon[name="close-outline"]{
+    display: none;
+}
+
+
+
+/* ================= Main section ================= */
+
+main{
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(159, 180, 173);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+main h1{
+    font-size: 50px;
+}
+
+
+
+/* =============== for responsive ============== */
+
+@media (max-width:980px){
+    .logo{
+        color:white;
+        font-size: 1.2rem;
+    }
+    .navbar .ul-list li a{
+        color: white;
+        font-size: 15px;
+    }
+    .logo img{
+        height: 10vh;
+    }
+    main h1{
+        font-size: 40px;
+    }
+}
+
+@media (max-width:860px){
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+    }
+    .navbar .ul-list li{
+        line-height: 60px;
+    }
+    .navbar .ul-list li a{
+        font-size: 1rem;
+    }
+
+    header{
+        position: relative;
+    }
+    .logo img{
+        height: 6vh;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 63vh;
+        background: black ;
+        position: absolute;
+        top: 40px;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+    }
+
+    .navbar .ul-list{
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .navbar .ul-list li a:hover,a:active{
+        color: #5bd485;
+        font-size: 1.25rem;
+    }
+
+    .active .navbar{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .active .mobile-navbar-btn .mobile-nav-icon[name="close-outline"]{
+        display: block;
+    }
+    .active .mobile-navbar-btn .mobile-nav-icon[name="menu-outline"]{
+        display: none;
+    }
+
+}
+
+
+/* Footer Style   */
+footer{
+	position:absolute;
+	bottom: 0%;
+	background-color: #0b0028;
+	color: whitesmoke;
+	height: 8vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+  
+.namelink{
+	text-decoration: none;
+	font-size: 1rem;
+	color: aqua;
+}
+</style>
+  
+<body>
+  
+    <header class="header active">
+        
+        <label class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7GlcAeh77bR29ViliFsnRN3qtfdwekxAsSQ&usqp=CAU" alt="logo image">
+			<h2>Image<span> Tools</span> </h2>
+        </label>
+
+        <nav class="navbar">
+            <ul class="ul-list">
+				<li><a href="#" class="active">Home</a></li>   
+				<li><a href="#">Generator</a></li>
+				<li><a href="#">Search</a></li>
+				<li><a href="#">Random</a></li>
+				<li><a href="#">BG Remove</a></li>
+				<li><a href="#">Editor</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-navbar-btn">
+            <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+            <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+        </div>
+    </header>
+
+
+
+    <main>
+        <section>
+            <h1>Main section</h1>
+        </section>
+    </main>
+
+
+    <footer>
+		&copy;2024 India, All Rights Reserved by &nbsp;
+        <i class="fa-brands fa-github fa-beat" style="color: #32e10e;">
+        </i> &nbsp; <a href="https://github.com/2201031030049/2201031030049" class="namelink">Krishna</a>  
+	</footer>
+
+
+	<script src="https://kit.fontawesome.com/13404514da.js" crossorigin="anonymous"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
